@@ -1,11 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useBetsContext } from "../hooks/useBetsContext";
 
 // components
 import BetDetails from "../components/BetDetails";
 import BetForm from "../components/BetForm";
 
 const Home = () => {
-    const [bets, setBets] = useState(null);
+    const { bets, dispatch } = useBetsContext()
 
     useEffect(() => {
         const fetchBets = async () => {
@@ -13,7 +14,7 @@ const Home = () => {
             const json = await res.json()
 
             if (res.ok) {
-                setBets(json)
+                dispatch({type: 'SET_BETS', payload: json})
             }
         }
         fetchBets()

@@ -1,6 +1,8 @@
-import { useState } from "react"
+import { useContext, useState } from "react";
+import { useBetsContext } from "../hooks/useBetsContext";
 
 const BetForm = () => {
+    const { dispatch } = useBetsContext();
     const [title, setTitle] = useState('');
     const [date, setDate] = useState('');
     const [sport, setSport] = useState('');
@@ -34,6 +36,7 @@ const BetForm = () => {
             setOdds('')
             setError(null)
             console.log('New Bet Added', json)
+            dispatch({type: 'CREATE_BET', payload: json})
         }
     }
 
@@ -69,6 +72,7 @@ const BetForm = () => {
                 <option value="MLS">MLS</option>
                 <option value="UFC">UFC</option>
                 <option value="NHL">NHL</option>
+                <option value="ATP">ATP</option>
             </select>
 
             <label>Amount Wagered:</label>
