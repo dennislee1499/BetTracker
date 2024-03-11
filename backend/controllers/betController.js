@@ -29,6 +29,27 @@ const getBet = async (req, res) => {
 const createBet = async (req, res) => {
     const { date, sport, title, amountWagered, odds } = req.body;
 
+    let emptyFields = [];
+
+    if (!title) {
+        emptyFields.push('title')
+    }
+    if (!date) {
+        emptyFields.push('date')
+    }
+    if (!sport) {
+        emptyFields.push('sport')
+    }
+    if (!amountWagered) {
+        emptyFields.push('amountWagered')
+    }
+    if (!odds) {
+        emptyFields.push('odds')
+    }
+    if (emptyFields.length > 0) {
+        return res.status(400).json({ error: 'Please fill in all fields', emptyFields })
+    }
+
     // add doc to db
     try {
         const bet = await Bet.create({ date, sport, title, amountWagered, odds })

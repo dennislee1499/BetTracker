@@ -9,6 +9,7 @@ const BetForm = () => {
     const [amountWagered, setAmountWagered] = useState('');
     const [odds, setOdds] = useState('');
     const [error, setError] = useState(null);
+    const [emptyFields, setEmptyFields] = useState([]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -27,6 +28,7 @@ const BetForm = () => {
 
         if (!res.ok) {
             setError(json.error)
+            setEmptyFields(json.emptyFields)
         }
         if (res.ok) {
             setTitle('')
@@ -35,6 +37,7 @@ const BetForm = () => {
             setAmountWagered('')
             setOdds('')
             setError(null)
+            setEmptyFields([])
             dispatch({type: 'CREATE_BET', payload: json})
         }
     }
@@ -48,6 +51,7 @@ const BetForm = () => {
               type="text"
               onChange={(e) => setTitle(e.target.value)}
               value={title}
+              className={emptyFields.includes('title') ? 'error' : ''}
             />
 
             <label>Date:</label>
@@ -55,12 +59,14 @@ const BetForm = () => {
               type="Date"
               onChange={(e) => setDate(e.target.value)}
               value={date}
+              className={emptyFields.includes('date') ? 'error' : ''}
             />
 
             <label>Sport:</label>
             <select
                 onChange={(e) => setSport(e.target.value)}
                 value={sport}
+                className={emptyFields.includes('sport') ? 'error' : ''}
             >
                 <option value="">Select a Sport</option>
                 <option value="NBA">NBA</option>
@@ -79,6 +85,7 @@ const BetForm = () => {
               type="number"
               onChange={(e) => setAmountWagered(e.target.value)}
               value={amountWagered}
+              className={emptyFields.includes('amountWagered') ? 'error' : ''}
             />
 
             <label>Odds:</label>
@@ -86,6 +93,7 @@ const BetForm = () => {
               type="number"
               onChange={(e) => setOdds(e.target.value)}
               value={odds}
+              className={emptyFields.includes('odds') ? 'error' : ''}
             />
             <button>Add Bet</button>
             {error && <div className="error">{error}</div>}

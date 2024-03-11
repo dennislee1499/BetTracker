@@ -10,7 +10,7 @@ const betSchema = new Schema({
     sport: {
         type: String,
         required: true,
-        enum: ['NBA', 'NCAAB', 'NFL', 'NCAAF', 'MLB', 'MLS', 'UFC', 'NHL']
+        enum: ['NBA', 'NCAAB', 'NFL', 'NCAAF', 'MLB', 'MLS', 'UFC', 'NHL', 'ATP']
     },
     title: {
         type: String,
