@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 // components
 import BetDetails from "../components/BetDetails";
+import BetForm from "../components/BetForm";
 
 const Home = () => {
     const [bets, setBets] = useState(null);
@@ -26,6 +27,7 @@ const Home = () => {
                     <BetDetails key={bet._id} bet={bet} />
                 ))}
             </div>
+            <BetForm />
         </div>
     )
 }
