@@ -12,6 +12,10 @@ export const betsReducer = (state, action) => {
             return {
                 bets: [action.payload, ...state.bets]
             }
+        case 'DELETE_BET':
+            return {
+                bets: state.bets.filter((b) => b._id !== action.payload._id)
+            }
         default: 
             return state
     }
