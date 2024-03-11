@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 // GET all bets 
 const getBets = async (req, res) => {
-    const bets = await Bet.find({}).sort({date: -1})
+    const bets = await Bet.find({}).sort({formattedDate: -1})
 
     res.status(200).json(bets);
 }

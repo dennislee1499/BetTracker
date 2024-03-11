@@ -18,7 +18,7 @@ const Home = () => {
             }
         }
         fetchBets()
-    }, []);
+    }, [dispatch]);
 
 
     return (

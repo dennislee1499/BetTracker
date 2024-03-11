@@ -1,4 +1,7 @@
-import { useBetsContext } from "../hooks/useBetsContext"
+import { useBetsContext } from "../hooks/useBetsContext";
+
+// date fns
+import format from 'date-fns/format';
 
 const BetDetails = ({ bet }) => {
     const { dispatch } = useBetsContext();
@@ -15,10 +18,12 @@ const BetDetails = ({ bet }) => {
         }
     }
 
+    const formattedDate = format(new Date(bet.date), 'MMMM dd, yyyy');
+
     return (
         <div className="bet-details">
             <h4>{bet.title}</h4>
-            <p><strong>Date Placed ('YYYY-MM-DD'):</strong>{bet.date}</p>
+            <p><strong>Date Placed:</strong>{formattedDate}</p>
             <p><strong>Sport:</strong>{bet.sport}</p>
             <p><strong>Amount Wagered:</strong>{bet.amountWagered}</p>
             <p><strong>Odds (-110, 110):</strong>{bet.odds}</p>
