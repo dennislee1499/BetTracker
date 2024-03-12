@@ -16,6 +16,12 @@ export const betsReducer = (state, action) => {
             return {
                 bets: state.bets.filter((b) => b._id !== action.payload._id)
             }
+        case 'UPDATE_BET':
+            return {
+                bets: state.bets.map((bet) => 
+                    bet._id === action.payload._id ? action.payload : bet
+                )
+            }
         default: 
             return state
     }

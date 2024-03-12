@@ -3,9 +3,8 @@ const Schema = mongoose.Schema;
 
 const betSchema = new Schema({
     date: {
-        type: Date,
+        type: String,
         required: true,
-        default: Date.now
     },
     sport: {
         type: String,

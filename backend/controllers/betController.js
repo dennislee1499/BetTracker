@@ -79,6 +79,29 @@ const deleteBet = async (req, res) => {
 // UPDATE a bet
 const updateBet = async (req, res) => {
     const { id } = req.params
+    const { date, sport, title, amountWagered, odds } = req.body;
+    
+    let emptyFields = [];
+
+    if (!title) {
+        emptyFields.push('title')
+    }
+    if (!date) {
+        emptyFields.push('date')
+    }
+    if (!sport) {
+        emptyFields.push('sport')
+    }
+    if (!amountWagered) {
+        emptyFields.push('amountWagered')
+    }
+    if (!odds) {
+        emptyFields.push('odds')
+    }
+    if (emptyFields.length > 0) {
+        return res.status(400).json({ error: 'Please fill in all fields', emptyFields })
+    }
+
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(404).json({ error: 'No such bet' })
