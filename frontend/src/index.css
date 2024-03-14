@@ -65,16 +65,6 @@ header a {
   color: #555;
 }
 
-/* .bet-details span {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  cursor: pointer;
-  background: #f1f1f1;
-  padding: 6px;
-  border-radius: 50%;
-  color: #333;
-} */
 
 .icon-container {
   position: absolute;
@@ -95,10 +85,10 @@ header a {
   margin-bottom: 8px;
 }
 
-.icon-container .material-symbols-outlined:last-child,
+/* .icon-container .material-symbols-outlined:last-child,
 .icon-container .material-symbols-outlined2:last-child {
   margin-bottom: 0;
-}
+} */
 
 /* new workout form */
 label,

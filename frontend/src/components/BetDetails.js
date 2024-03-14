@@ -7,7 +7,7 @@ const BetDetails = ({ bet }) => {
 
 
     const handleDelete = async () => {
-        const res = await fetch('/api/bets/' + bet._id, {
+        const res = await fetch(`/api/bets/${bet._id}`, {
             method: 'DELETE'
         })
 

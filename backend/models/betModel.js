@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const betSchema = new Schema({
     date: {
         type: String,
-        required: true,
+        required: true
     },
     sport: {
         type: String,
