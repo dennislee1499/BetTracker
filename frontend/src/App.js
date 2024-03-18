@@ -1,9 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import EditBetForm from "./components/EditBetForm";
 
 // pages & components
 import Home from "./pages/Home";
+import Navbar from "./components/Navbar";
+import EditBetForm from "./components/EditBetForm";
+import Login from "./pages/Login";
+import SignUp from "./pages/Signup";
 
 function App() {
   return (
@@ -19,6 +21,14 @@ function App() {
             <Route 
               path="/edit/:id"
               element={ <EditBetForm /> }
+            />
+            <Route 
+              path="/login"
+              element={ <Login /> }
+            />
+            <Route 
+              path="/signup"
+              element={ <SignUp /> }
             />
           </Routes>
         </div>
