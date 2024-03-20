@@ -85,11 +85,6 @@ header a {
   margin-bottom: 8px;
 }
 
-/* .icon-container .material-symbols-outlined:last-child,
-.icon-container .material-symbols-outlined2:last-child {
-  margin-bottom: 0;
-} */
-
 /* new workout form */
 label,
 input {
@@ -151,6 +146,7 @@ nav button {
   font-size: 1em;
 }
 
+/* auth forms */
 form.signup, form.login {
   max-width: 400px;
   margin: 40px auto;

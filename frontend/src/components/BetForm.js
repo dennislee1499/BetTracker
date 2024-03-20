@@ -38,7 +38,7 @@ const BetForm = () => {
             setOdds('')
             setError(null)
             setEmptyFields([])
-            dispatch({type: 'CREATE_BET', payload: json})
+            dispatch({ type: 'CREATE_BET', payload: json })
         }
     }
 
